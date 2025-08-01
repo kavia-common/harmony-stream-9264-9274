@@ -1,0 +1,58 @@
+.HomePage {
+  position: relative;
+  min-height: 100vh;
+  width: 100vw;
+  background: var(--color-white);
+  display: flex;
+  flex-direction: column;
+}
+.Home__row {
+  display: flex;
+  flex-direction: row;
+}
+.Home__main {
+  flex: 1;
+  padding: 44px 62px 0 38px;
+  min-width: 0;
+}
+.Home__galleryHeader {
+  margin-bottom: 28px;
+}
+.Home__galleryHeader h2 {
+  font-size: 25px;
+  font-weight: 900;
+  margin: 0;
+  color: var(--color-black);
+}
+.Home__gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.Home__card {
+  width: 208px; min-height: 208px;
+  border-radius: 13px;
+  box-shadow: 0 2px 8px 0 rgba(34,27,27,0.07);
+  padding: 22px 14px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: flex-start;
+}
+.Home__card-img {
+  width: 134px; height: 134px; background: var(--color-white);
+  border-radius: 7px;
+  margin-bottom: 18px;
+}
+.Home__card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-white);
+  letter-spacing: -.2px;
+  margin-top: 3px;
+}
+@media (max-width: 900px) {
+  .Home__main { padding: 18px 6px 0 8px; }
+  .Home__card { width: 144px; }
+  .Home__galleryHeader h2 { font-size: 18px;}
+}
