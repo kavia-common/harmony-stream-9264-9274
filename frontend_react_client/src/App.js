@@ -1,47 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import HomePage from "./routes/Home";
+import "./App.css";
+import "./design-system.css";
 
 // PUBLIC_INTERFACE
 function App() {
-  const [theme, setTheme] = useState('light');
+  // Demo/user state for now
+  const [user] = useState({ name: "Rajarshi B" });
+  const [playlists] = useState([
+    "Bollywood Jazz", "Hangover Cure", "Your Top Songs 2022", "Desi Indie", "Rock in India", "RADAR India"
+  ]);
+  const [route, setRoute] = useState("home");
+  const [selectedPlaylist, setSelectedPlaylist] = useState("");
 
-  // Effect to apply theme to document element
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-  }, [theme]);
-
-  // PUBLIC_INTERFACE
-  const toggleTheme = () => {
-    setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
-  };
+  // IE: router switch
+  let page = <HomePage user={user} playlists={playlists} onNav={setRoute} onPlaylistSelect={setSelectedPlaylist} />;
+  // TODO: Add: auth, search, playback, playlist, profile routes
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <button 
-          className="theme-toggle" 
-          onClick={toggleTheme}
-          aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-        >
-          {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
-        </button>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          Current theme: <strong>{theme}</strong>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" data-theme="light">
+      {page}
     </div>
   );
 }

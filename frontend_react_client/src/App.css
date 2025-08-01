@@ -21,12 +21,14 @@
   --button-text: #ffffff;
 }
 
+/* Uses design tokens for global styles */
+
 .App {
-  text-align: center;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
   min-height: 100vh;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  min-width: 100vw;
+  background: var(--color-white);
+  display: flex;
+  flex-direction: column;
 }
 
 .App-logo {
